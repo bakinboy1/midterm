@@ -29,7 +29,6 @@ CREATE TABLE technicians (
     password varchar(20) NOT NULL,
     PRIMARY KEY (techID)
 );
-
 INSERT INTO technicians VALUES 
 (11, 'Alison', 'Diaz', 'alison@sportspro.com', '800-555-0443', 'sesame'), 
 (12, 'Jason', 'Lee', 'jason@sportspro.com', '800-555-0444', 'sesame'),
