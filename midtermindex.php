@@ -5,14 +5,14 @@ require_once('database.php');
 
 
 
- $version='2.0';
- $query = "SELECT productCode, name, version FROM products WHERE version = ? ";
+ $customerID='1004';
+ $query = "SELECT products.productCode, products.name, customers.firstName, customers.lastName FROM registrations WHERE customerID = ? ";
 
  $stmt = $db->prepare($query);
- $stmt->bind_param('d', $version);
+ $stmt->bind_param('s', $customerID);
  $stmt->execute();
 $stmt->store_result();
- $stmt->bind_result($productCode, $name, $version);
+ $stmt->bind_result($productCode, $name, $firstName, lastName);
 //use this method to display results
 
 ?>
@@ -31,22 +31,23 @@ $stmt->store_result();
     <div id="page">
 
     <div id="header">
-        <h1>Product list</h1>
+        <h1>Customer list</h1>
     </div>
 
     <div id="main">
 
-        <h1>Product List</h1>
+        <h1>Customer List</h1>
 
-       
+       1
 
         <div id="content">
             <!-- display a table of products -->
             <table>
                 <tr>
-                    <th>productCode</th>
-                    <th>name</th>
-                    <th>version</th>
+                    <th>product Code</th>
+                    <th>name </th>
+                    <th>firstName</th>
+                    <th>lastName</th>
 
                 </tr>
                 <?php while($stmt->fetch()): ?>
@@ -54,7 +55,9 @@ $stmt->store_result();
                 <tr>
                     <td><?php  echo $productCode; ?></td>
                     <td><?php  echo $name; ?></td>
-                    <td><?php echo $version; ?></td>
+                    <td><?php  echo $firstName; ?></td>
+                    <td><?php  echo $lastName; ?></td>
+                    
 
                     
                     
