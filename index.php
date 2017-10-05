@@ -55,8 +55,7 @@ $stmt->store_result();
                     <td><?php  echo $productCode; ?></td>
                     <td><?php  echo $name; ?></td>
                     <td><?php echo $version; ?></td>
-
-                    
+          
                     
                 </tr>
                 
