@@ -46,7 +46,7 @@ $stmt->store_result();
                 <tr>
                     <th>Product Code</th>
                     <th>Name</th>
-                    <th>Version</th>
+                   
 
                 </tr>
                 <?php while($stmt->fetch()): ?>
@@ -54,7 +54,7 @@ $stmt->store_result();
                 <tr>
                     <td><?php  echo $productCode; ?></td>
                     <td><?php  echo $name; ?></td>
-                    <td><?php echo $version; ?></td>
+                   
           
                     
                 </tr>

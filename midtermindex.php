@@ -5,14 +5,14 @@ require_once('database.php');
 
 
 
- $customerID='1004';
- $query = "SELECT products.productCode, products.name, customers.firstName, customers.lastName FROM registrations WHERE customerID = ? ";
+ $state='CA';
+ $query = "SELECT lastName, firstName, city FROM customers WHERE state = ? ORDER BY lastName";
 
  $stmt = $db->prepare($query);
- $stmt->bind_param('s', $customerID);
+ $stmt->bind_param('s', $state);
  $stmt->execute();
 $stmt->store_result();
- $stmt->bind_result($productCode, $name, $firstName, lastName);
+ $stmt->bind_result($lastName, $firstName, $city);
 //use this method to display results
 
 ?>
@@ -44,20 +44,17 @@ $stmt->store_result();
             <!-- display a table of products -->
             <table>
                 <tr>
-                    <th>product Code</th>
-                    <th>name </th>
-                    <th>firstName</th>
-                    <th>lastName</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>City</th>
 
                 </tr>
                 <?php while($stmt->fetch()): ?>
 
                 <tr>
-                    <td><?php  echo $productCode; ?></td>
-                    <td><?php  echo $name; ?></td>
                     <td><?php  echo $firstName; ?></td>
                     <td><?php  echo $lastName; ?></td>
-                    
+                    <td><?php echo $city; ?></td>
 
                     
                     
