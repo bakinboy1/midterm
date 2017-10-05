@@ -31,7 +31,7 @@ $stmt->store_result();
     <div id="page">
 
     <div id="header">
-        <h1>Product list</h1>
+        <h1>Product List</h1>
     </div>
 
     <div id="main">
@@ -44,9 +44,9 @@ $stmt->store_result();
             <!-- display a table of products -->
             <table>
                 <tr>
-                    <th>productCode</th>
-                    <th>name</th>
-                    <th>version</th>
+                    <th>Product Code</th>
+                    <th>Name</th>
+                    <th>Version</th>
 
                 </tr>
                 <?php while($stmt->fetch()): ?>
