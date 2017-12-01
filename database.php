@@ -1,8 +1,15 @@
 <?php
-    $dsn = 'localhost';
-    $username = 'seren888';
-    $password = '';
+    $dsn = 'mysql:host=localhost;dbname=courseDB';
+    $username = 'mgs_user';
+    $password = 'pa55word';
     $servername= "localhost";
-    $dbname='tech_support';
-    $db=new mysqli($servername, $username, $password, $dbname);
+    $dbname='courseDB';
+
+    try {
+        $db = new PDO($dsn, $username, $password);
+    } catch (PDOException $e) {
+        $error_message = $e->getMessage();
+        include('database_error.php');
+        exit();
+    }
 ?>
